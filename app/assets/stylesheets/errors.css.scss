@@ -1,0 +1,41 @@
+.field_with_errors input{
+  //color: #b94a48;
+  border-color: #b94a48;
+}
+
+
+.field_with_errors select{
+  border-color: #b94a48;
+}
+
+
+.field_with_errors textarea{
+  border-color: #b94a48;  
+}
+
+.field_with_errors input:focus {
+  border-color: #953b39;
+  -webkit-box-shadow: 0 0 6px #d59392;
+  -moz-box-shadow: 0 0 6px #d59392;
+  box-shadow: 0 0 6px #d59392;
+}
+
+.field_with_errors select:focus{
+  border-color: #953b39;
+  -webkit-box-shadow: 0 0 6px #d59392;
+  -moz-box-shadow: 0 0 6px #d59392;
+  box-shadow: 0 0 6px #d59392;
+  }
+
+
+.field_with_errors textarea:focus{
+  border-color: #953b39;
+  -webkit-box-shadow: 0 0 6px #d59392;
+  -moz-box-shadow: 0 0 6px #d59392;
+  box-shadow: 0 0 6px #d59392;
+}
+
+
+.field_with_errors label {
+  color:#b94a48;
+}

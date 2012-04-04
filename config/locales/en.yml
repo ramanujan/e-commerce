@@ -2,4 +2,64 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  brand: "Powered by Domenico D'Egidio"
+  go_to_store: "Go To Store"
+  go_to_store_admin: "Go To Store Admin"
+  support: "Support"
+  account: "Account"
+  logout: "Logout"
+  logged_in: "Logged in as "
+  heading: "E-Commerce!"
+  presentation: "This application is under construction. Don't bother with it! "
+  home: "Home"
+  orders: "Orders"
+  products: "Products"
+  collections: "Collections"
+  navigation: "Navigation"
+  promotions: "Promotions"
+
+  admin:
+    home: "Admin Home"
+    
+    products:
+      unavailable_product: "The product you are looking for could be not found"
+      delete_confirmation: "Are you sure you want to delete %{title} ?"
+      edit_product: "Edit Product"    
+      delete_product: "Delete Product" 
+      description: "Description"
+      properties: "Properties" 
+      type: "Product Type"
+      date: "Created At"
+      price: "Selling Price"
+      
+      new:
+        title: "Add new product"
+        heading: "New Product"
+        new_product_details: "Insert product's details"
+        product_title: "Product title"
+        examples: "Examples: Strawberries, Cherries, Go Bananas ..."
+        description: "Describe your product"
+        suggest: "Example: Delicious red fruits..."
+        price: "Selling price"
+        submit: "Create Product"
+ 
+      index:
+        title: "Available Products"
+        add: "Add New Product"
+        import: "Import Product"
+        export: "Export Product"
+        heading: "Products"
+      
+      create:
+        success: "%{title} was successful created! View it in "
+        where: "your store"
+        or: " or continue and "
+        another: "create another product"
+          
+      show:
+        title: "Show product %{title}"  
+        heading: "%{title}'s details"
+    
+    base:
+      index:
+        title: "Administrate your product"

@@ -1,0 +1,35 @@
+@import 'colors';
+
+@mixin radius-7 {
+  -moz-border-radius:7px; 
+  -webkit-border-radius:7px; 
+   border-radius:7px;
+}
+
+
+@mixin blue-background{
+ 
+  padding:2.5%;
+  background: $lightBlue;
+  background: -webkit-gradient(linear, left top, right bottom, from($deepBlue), to($lightBlue)); /* for webkit browsers */ 
+  background: -moz-linear-gradient(top,  $deepBlue,  $lightBlue); /* for firefox 3.6+ */
+  background: -webkit-linear-gradient(top,$deepBlue, $lightBlue);
+  background: -ms-linear-gradient(top, $deepBlue, $lightBlue);
+  background: -o-linear-gradient(top, $deepBlue, $lightBlue); 
+  border:solid 1px #a1a1a1;  
+  @include radius-7;
+  
+}
+
+@mixin shadow{
+   box-shadow: 5px 5px 5px #ccc;
+   -moz-box-shadow: 5px 5px 5px #ccc;
+   -webkit-box-shadow: 5px 5px 5px #ccc;
+}
+
+@mixin fancy-text{
+  color:#fff;  
+  font-size: 200%;
+  font-family: Georgia, serif;
+  text-shadow: rgba(12,26,232,.8) 0px 1px 0px; 
+}

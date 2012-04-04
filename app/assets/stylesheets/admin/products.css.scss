@@ -1,0 +1,33 @@
+// Place all the styles related to the admin/products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'settings';
+
+.new_product_details,.product_property{
+  @include blue-background;  
+  @include fancy-text;
+}
+
+.product_property{
+  padding:1%;
+  font-size:130%;
+  margin-top:1%;
+}
+
+.product_description{
+  font-size:150%;
+  font-wheight:bold;
+  line-height:110%;
+  padding-top: 3.5%;
+  padding-bottom:3.5%;
+  padding-left:1%;
+   
+}
+
+.product_attribute{
+  font-size:110%;
+  font-weight:bold;
+  border-right:solid 1px $lightGray;
+  padding-left:1%;
+}

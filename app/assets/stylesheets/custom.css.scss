@@ -1,0 +1,117 @@
+@import 'bootstrap';
+@import 'bootstrap-responsive';
+@import 'colors';
+@import 'settings';
+@import 'errors';
+
+/* General styling */
+
+body{
+
+  padding:60px;
+  margin:0px;
+  background:#f1f1ee; 
+}
+
+a:hover{
+ text-decoration:none; 
+}
+
+.cool_line{
+  
+  color:$lightGray;
+  background-color:$lightGray;
+  border-top:1px solid $lightGray;
+  border-bottom:1px solid #fff;
+
+}
+
+.main_nav{
+  font-size: 150%;
+  padding:1%;
+  border-right:solid 1px $lightGray;
+}
+
+.cico{
+  background:url("japanese.jpg");
+}
+
+.hero-cico{
+  @include blue-background;
+  color:#fff; 
+  span{
+    font-size:400%;
+    font-weight:bold;
+    line-height:110%;
+  }
+}
+
+#admin_navbar{
+  li{
+    font-size:150%;
+  }
+}
+
+/* Shadows */ 
+
+.inner_shadow{
+  border:solid 1px #c1c1c1;
+  padding:1.4%;
+  @include shadow;  
+  margin:0px;
+}
+
+.outer_shadow{
+  box-shadow: -2px -2px 5px #ccc;
+  -moz-box-shadow: -2px -2px 5px #ccc;
+  -webkit-box-shadow: -2px -2px 5px #ccc;
+  //padding:0px;
+}
+
+
+/* bootstrap fixing */ 
+
+.btn-group{
+  .btn {
+    margin-right:0.5%;
+  }
+}
+ 
+
+label{
+  font-size:120%;
+  font-weight:bold;
+ }
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  height: auto;
+  line-height:110%;
+  margin-top: 1.5%;
+  font-size:150%;
+  @include radius-7;
+  
+  
+}
+
+input{
+  width:30%;
+  row_span:3;
+}
+
+textarea{
+  width:50%;
+  margin-bottom:1.5%;
+}
+
+input.price{
+    width:10%;
+    margin-top:0px;
+  }
+
+.submit{
+ // @include metalic;
+  padding:1.5%;
+}
+
+

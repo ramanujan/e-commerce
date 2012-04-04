@@ -1,0 +1,36 @@
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+         	<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            	<span class="icon-eye-open icon-white">
+            </a>
+        
+            <%=link_to t("brand"),'#',:class=>"brand"%>
+            <div class="nav-collapse">
+            	
+            	<ul class="nav">
+                	<li class="active"><%=link_to t('go_to_store'),'#'%></li>
+                    <li class="active"><%=link_to t('go_to_store_Admin'),admin_root_path%></li>   
+                </ul>
+                
+                <ul class="nav pull-right">
+               		<li class="active"><%=link_to t('support'),'#'%></li>
+                    <li><%=link_to t('account'),'#'%></li>
+                    <li><%=link_to t('logout'),'#'%></li>
+                </ul> 
+                
+                <form class="navbar-search pull-right">
+            		<label class="icon-search icon-white"></label>
+            		<input type="text" class="search-query" placeholder="Search">
+                </form>
+                
+                <p class="divider-vertical pull-right"></p>
+                <p class="navbar-text pull-right"><%=t("logged_in")%> <%=link_to "Username","#"%></p>
+            
+                 
+            </div> <!-- Nav collapse-->        
+        
+        </div>
+    
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<%unless model.errors.empty? %>
+  <div class="alert alert-error">
+  	<a class="close" data-dismiss="alert" href="#">&times;</a>
+  	<h3 class="alert-heading">Warning!</h3>
+  	<br />	
+  	<strong>The form contains <%=pluralize(model.errors.count," error")%></strong>
+  <hr class="cool_line"/>  
+  <ul>
+  	<%model.errors.full_messages.each do |error|%> 
+    	<li><%=error%></li>
+     <%end%>
+  </ul>
+ </div> 
+<%end%>

@@ -1,0 +1,38 @@
+<%=render 'shared/admin_navbar'%>
+
+<div class="row-fluid">
+	<div class="outer_shadow span10">
+		<div class="inner_shadow span10 cico">
+        	
+        	<div class="row-fluid">
+                
+                <!--new heading -->
+	            <div class="row-fluid"> 
+	            	<h1><%=t("admin.products.new.heading")%></h1>
+	            </div>	
+		        
+		        <hr class="cool_line" />
+		        
+		        <!--Errors -->
+  				<div class="row-fluid">
+  					<%=render partial:'shared/errors',locals:{model:@product}%>
+  			     </div>  
+  			
+  			</div>
+            
+            <!--Form -->
+            <div class="row-fluid">
+
+				<div class="span12">
+		
+					<%=render 'form'%>
+          		
+				</div>
+
+			</div>
+
+		
+		
+		</div> 
+	</div>
+</div>

@@ -1,0 +1,6 @@
+<%if @products.any? %>
+  <% @products.each do |product| %>
+    <%=render :partial=>'admin/products/product', :locals=>{:product=>product} %>
+    <hr class="cool_line"/> 
+  <%end%>
+<%end%>

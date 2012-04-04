@@ -1,0 +1,129 @@
+<%=render 'shared/admin_navbar'%>
+<div class="row-fluid">
+	<div class="outer_shadow span10">
+		<div class="inner_shadow span10 cico">
+	    	
+	    	<!--show heading -->
+	        <div class="row-fluid"> 
+	        	<h1><%=t("admin.products.show.heading",title:@product.title)%></h1>
+	        </div>	
+		    <hr class="cool_line" />
+		    
+		     <!-- Flash messages -->
+    		<div class="row-fluid">
+      			<div class="span12">
+        			<%=render 'shared/flash_messages'%>
+      			</div>
+    		</div>
+		    
+		    <!--Buttons Edit and Delete -->
+    		<div class="row-fluid">
+      	    	<div class="span12">
+        			<div class="btn-group">
+    	
+    					<%=link_to edit_admin_product_path(@product),class:"btn btn-primary" do %>
+    	  				<i class="icon-edit icon-white"></i>
+    	  				<%=t("admin.products.edit_product")%>
+    	  				<%end%>
+            
+            			<%=link_to admin_product_path(@product),
+               			method:'delete',
+               			confirm:t("admin.products.delete_confirmation",title:@product.title),
+               			class:"btn btn-danger" do %>
+    	  	     		<i class="icon-trash icon-white"></i>
+    	  	     		<%=t("admin.products.delete_product",:title=>@product.title)%>
+    	  				<%end%>
+        			</div>	    
+      			</div>    
+    		</div> 
+		    <hr class="cool_line"/>
+		    
+		    <!-- Product's description-->
+		    <div class="row-fluid">
+		    	
+		    	<div class="span8">
+		    		<div class="product_property">
+		    	  		<%=t("admin.products.description")%>
+		    		</div>
+		    	
+		    		<div class="product_description">
+		    	  		<%=sanitize(@product.description)%>
+		    		</div>
+		        </div>  
+		    
+		    </div>
+		    
+		    <!-- Product's properties -->
+		    <div class="row-fluid">
+		    
+		    	<div class="span8">
+		    		
+		    		<div class="row-fluid">
+		    			<div class="product_property">
+		    	  			<%=t("admin.products.properties")%>
+		    			</div>
+		    	    </div>
+		    	    <br />
+		    	    <!-- Type -->
+		    	    <div class="row-fluid">
+		    	    	<div class="span3 product_attribute">
+		    	    		<%=t("admin.products.type")%>
+		    	   		</div> 
+		    	    
+		    	    	<div class="span8">
+		    	      		<%=@product.class%>
+		    	    	</div> 
+		    	    
+		    	    </div>
+		    	    
+		    	    <hr class="cool_line"/>
+		    	    
+		    	    <!-- Vendor -->
+		    	    <div class="row-fluid">
+		    	    	<div class="span3 product_attribute">
+		    	    		<%=t("admin.products.vendor")%>
+		    	   	 	</div> 
+		    	    
+		    	    	<div class="span8">
+		    	      		<%="MY SELF"%>
+		    	    	</div>   
+                    </div>
+                    
+                    <hr class="cool_line"/>
+                    
+                    <!-- Selling price-->
+                    <div class="row-fluid">
+                    	
+                   		<div class="span3 product_attribute">
+		    	    		<%=t("admin.products.price")%>
+		    	    	</div> 
+		    	    
+		    	    	<div class="span8">
+		    	      		<%=number_to_currency(@product.price)%>
+		    	    	</div>   
+                    </div>  		    	
+		            
+		            <hr class="cool_line"/>
+		            
+		             <!-- Product creation date-->
+		             <div class="row-fluid">
+                    	
+                   		<div class="span3 product_attribute">
+		    	    		<%=t("admin.products.date")%>
+		    	    	</div> 
+		    	    
+		    	    	<div class="span8">
+		    	      		<%=@product.created_at%>
+		    	    	</div>   
+                    </div>  		    	
+		            
+		            
+		            
+		        </div>
+		    
+		    </div>
+		    <br />
+		    
+		 </div>
+	</div>
+</div>

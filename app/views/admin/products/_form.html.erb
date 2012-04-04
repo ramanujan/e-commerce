@@ -1,0 +1,46 @@
+<%=form_for [:admin,@product] do |f| %>
+  
+  <div class="new_product_details"> 
+    <%= @product.new_record? ? t("admin.products.new.new_product_details"):t("admin.products.edit.edit_product")%>
+  </div>
+  
+  <br />      
+  
+  <div>
+    <%=f.label(:title,t("admin.products.new.product_title"))%>
+    <span><%="( #{ t('admin.products.new.examples')} )"%></span>  
+  </div>  
+       
+ 
+  <div>
+    <%=f.text_field :title%>
+  </div>
+
+   <br />
+
+   <div>
+    <%=f.label(:description,t("admin.products.new.description"))%>
+    <span><%="( #{ t('admin.products.new.suggest')} )"%></span> 
+  </div>  
+       
+ 
+  <div>
+    <%=f.text_area :description%>
+  </div>
+
+  <div>
+    <%=f.label(:price,t("admin.products.new.price"))%> 
+  </div>  
+       
+ 
+  <div>
+    <%=f.text_field :price, placeholder:0.01, class:'price'%>
+  </div>
+ 
+  <div class="metalic">
+  	
+  	<%= @product.new_record? ? (f.submit t("admin.products.new.submit"),:class=>"btn btn-primary btn-large") : 
+  	(f.submit t("admin.products.edit.submit"),:class=>"btn btn-primary")%>
+  </div>   
+
+<%end%> 
