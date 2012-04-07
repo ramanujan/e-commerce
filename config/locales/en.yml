@@ -42,6 +42,7 @@ en:
         suggest: "Example: Delicious red fruits..."
         price: "Selling price"
         submit: "Create Product"
+        new_image: "Add product images"
  
       index:
         title: "Available Products"

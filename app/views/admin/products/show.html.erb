@@ -2,10 +2,19 @@
 <div class="row-fluid">
 	<div class="outer_shadow span10">
 		<div class="inner_shadow span10 cico">
-	    	
-	    	<!--show heading -->
+	     
+	    	<!--show heading + thumbnail -->
 	        <div class="row-fluid"> 
-	        	<h1><%=t("admin.products.show.heading",title:@product.title)%></h1>
+	        	<div class="span7">
+	        	  <h1><%=t("admin.products.show.heading",title:@product.title)%></h1>
+	            </div> 
+	            
+	             <%if @product.assets.any? %>
+	              <div class="span4">
+	              	<%= render 'carousel'%>
+	              </div>
+	             <%end%> 
+	        
 	        </div>	
 		    <hr class="cool_line" />
 		    
@@ -37,7 +46,7 @@
       			</div>    
     		</div> 
 		    <hr class="cool_line"/>
-		    
+		   
 		    <!-- Product's description-->
 		    <div class="row-fluid">
 		    	

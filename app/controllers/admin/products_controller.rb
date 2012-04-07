@@ -10,12 +10,26 @@ class Admin::ProductsController < Admin::BaseController
   
   def new 
     @title=t("admin.products.new.title")     
-    @product = Product.new  
+    @product = Product.new    
   end 
   
+# La form relativa ad un nuovo prodotto è una form complessa. Oltre ai dati del prodotto arrivano i dati 
+# relativi alle immagini caricate: 
+# params[:product][:asset_attributes]=>{0=>{...},
+#                                       1=>{...},
+#                                       .
+#                                       .
+#                                       }  
+
+# Si evince l'Hash: params=>{ :product =>{:title=>"",
+#                                         :description=>""}
+#                                         :asset_attributes=>{...}
+#                                         }
   
   def create
+    
     @product = Product.new params[:product]
+    
     if @product.save
       message=t("admin.products.create.success",:title=>@product.title);
       message+=" "+view_context.link_to( t("admin.products.create.where"),'#' ) 

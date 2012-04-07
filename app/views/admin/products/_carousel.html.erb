@@ -1,0 +1,20 @@
+<div id="myCarousel" class="carousel slide">
+    
+    <!-- Carousel items -->
+    
+    <div class="carousel-inner">
+    	<div class="item active">
+    	  <%=image_tag @product.assets.first.image(:medium)%>	
+    	 </div> 
+    	
+    	<%@product.assets.each do |asset| %>
+    	<div class="item"> <%=image_tag asset.image(:medium)%></div>
+    	<%end%>
+    
+    </div>
+    
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    
+</div>

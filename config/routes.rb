@@ -1,5 +1,7 @@
 ECommerce::Application.routes.draw do
   
+  get "files/new"
+
   get "products/index"
 
   get "static_pages/home"
@@ -10,6 +12,8 @@ ECommerce::Application.routes.draw do
     root to:"base#index"
     resources :products
   end
+  
+  resources :files, :only=>[:new]
   
 =begin
     admin_root                /admin(.:format)                   admin/base#index

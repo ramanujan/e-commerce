@@ -48,3 +48,8 @@ Then /^show me the page$/ do
  save_and_open_page
 end
 
+When /^I attach the file "([^"]*)" to "([^"]*)"$/ do |path,file_field|
+
+  attach_file(file_field,path)
+
+end

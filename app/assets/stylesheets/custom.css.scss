@@ -6,6 +6,10 @@
 
 /* General styling */
 
+.debug{
+  border: solid 1px red;
+}
+
 body{
 
   padding:60px;
@@ -95,7 +99,7 @@ input, textarea, select, .uneditable-input {
 }
 
 input{
-  width:30%;
+  width:90%;
   row_span:3;
 }
 
@@ -113,5 +117,7 @@ input.price{
  // @include metalic;
   padding:1.5%;
 }
+
+
 
 

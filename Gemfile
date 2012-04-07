@@ -8,6 +8,8 @@ gem 'rails', '3.2.2'
 
 gem 'pg'
 gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem "paperclip", "2.7.0" # :git => "git://github.com/thoughtbot/paperclip.git"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,7 +23,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+
 
 group :test,:development do
   gem 'sqlite3'
