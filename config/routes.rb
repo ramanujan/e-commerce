@@ -6,6 +6,10 @@ ECommerce::Application.routes.draw do
 
   get "static_pages/home"
   
+  get '/heroku_reset', to:"static_pages#heroku_db_reset"
+  
+  get '/heroku_migrate', to:"static_pages#heroku_db_migrate"
+  
   root :to => 'static_pages#home'
   
   namespace :admin do
