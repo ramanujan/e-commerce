@@ -17,7 +17,7 @@ en:
   collections: "Collections"
   navigation: "Navigation"
   promotions: "Promotions"
-
+  heroku_warning: "(Attention! Heroku is read-only file system. This action won't work on heroku site!)"
   admin:
     home: "Admin Home"
     products:
