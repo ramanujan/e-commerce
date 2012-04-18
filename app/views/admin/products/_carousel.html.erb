@@ -4,11 +4,16 @@
     
     <div class="carousel-inner">
     	<div class="item active">
+    	  <%logger.info "DEBUG : =================> #{@product.assets.first.image(:medium)}"%>
     	  <%=image_tag @product.assets.first.image(:medium)%>	
-    	 </div> 
+    	  <!--Ricorda che se non hai caricato immagini, 
+    	  	per default /images/medium/missing.png  -->
+    	</div> 
     	
     	<%@product.assets.each do |asset| %>
-    	<div class="item"> <%=image_tag asset.image(:medium)%></div>
+    	<div class="item"> 
+    		<%=image_tag asset.image(:medium)%>
+        </div>
     	<%end%>
     
     </div>

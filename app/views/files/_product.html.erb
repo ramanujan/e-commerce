@@ -1,0 +1,7 @@
+<%unless @product.nil? %>
+  <ul>
+  	<li><strong>Title: </strong><%= @product.title %></li>
+    <li><strong>Description: </strong><%= brief( sanitize(@product.description) ) %></li>
+    <li><strong>Price: </strong><%= number_to_currency(@product.price) %></li>
+  </ul>
+<%end%>

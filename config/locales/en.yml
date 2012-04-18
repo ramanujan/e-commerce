@@ -20,7 +20,6 @@ en:
 
   admin:
     home: "Admin Home"
-    
     products:
       unavailable_product: "The product you are looking for could be not found"
       delete_confirmation: "Are you sure you want to delete %{title} ?"
@@ -31,6 +30,7 @@ en:
       type: "Product Type"
       date: "Created At"
       price: "Selling Price"
+      inventory: "Inventory: %{inventory}"
       
       new:
         title: "Add new product"
@@ -60,7 +60,20 @@ en:
       show:
         title: "Show product %{title}"  
         heading: "%{title}'s details"
-    
+      
+      edit:
+        title: "Edit product %{title}"    
+        edit_product_details: "Edit and update '%{title}' details"
+        submit: "Update Product"
+        heading: "Edit Product"
+      update:
+        success: "%{title} was successful updated! View it in "
+        where: "your store"
+        error: "There was this exception during update: %{msg}"
+      
+      delete:
+          success: "The product %{title} was successful deleted!"
+
     base:
       index:
         title: "Administrate your product"

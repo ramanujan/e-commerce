@@ -1,4 +1,5 @@
 class FilesController < ApplicationController
+  
   def new
     @product = Product.new 
     @product.assets.build

@@ -1,7 +1,7 @@
 <%=form_for [:admin,@product],:html=>{ :multipart => true } do |f| %>
   
   <div class="new_product_details"> 
-    <%= @product.new_record? ? t("admin.products.new.new_product_details"):t("admin.products.edit.edit_product")%>
+    <%= @product.new_record? ? t("admin.products.new.new_product_details"):t("admin.products.edit.edit_product_details",title:@product.title)%>
   </div>
   
   <br />      

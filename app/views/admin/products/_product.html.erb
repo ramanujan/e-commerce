@@ -1,18 +1,28 @@
 <div class="row-fluid">
 	
 	<!-- Image -->
-	<div class="span3">
-      
+	<div class="span2">
+     <%if product.assets.any? %>
+       <%=image_tag product.assets.first.image(:thumb)%>	
+     <%else%>
+       <%=image_tag "thumb/missing.png"%>
+     <%end%> 
     </div>	
 	
 	<!-- Title -->
 	<div class="span3">
-	
+	  <%=link_to( [:admin,product] ) do %>
+	    <h2><%=product.title%></h2>
+	  <%end%> 
 	</div>
 	
 	<!--Description -->
-	<div class="span3">
-	
+	<div class="span3 product_description_small">
+	  <%=brief(sanitize(product.description))%>
 	</div>
+	
+	<div class="span1">
+      <%=t("admin.products.inventory",:inventory=>product.qty)%>
+    </div>
 	
 </div>

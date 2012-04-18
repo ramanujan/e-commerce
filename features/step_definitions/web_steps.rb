@@ -33,9 +33,8 @@ end
 
 Then /^I should not see "([^"]*)"$/ do |name|
    
-   page.should_not have_content name
+   page.should_not have_content(name) 
 end
-
 
 Then /^I should not see "([^"]*)" within "([^"]*)"$/ do |value,selector|
    
@@ -52,4 +51,9 @@ When /^I attach the file "([^"]*)" to "([^"]*)"$/ do |path,file_field|
 
   attach_file(file_field,path)
 
+end
+
+
+Given /^there is a product named "([^"]*)"$/ do |title|
+ @product = Factory(:product, title:title)
 end

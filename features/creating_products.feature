@@ -1,8 +1,8 @@
 Feature: Creating Products
 
-  Affinchè gli utenti (buyer) possano avere dei prodotti da 
-  scegliere, come utente (administrator) devo essere in grado di 
-  creare facilmente i prodotti in vendita nel mio negozio. 
+  Affinchè gli utenti (buyer) possano avere dei prodotti da scegliere 
+  Come utente (administrator) 
+  Voglio creare facilmente i prodotti in vendita nel mio negozio. 
   
 Background: 
   Given I am on the homepage

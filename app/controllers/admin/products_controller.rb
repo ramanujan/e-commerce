@@ -1,6 +1,8 @@
 class Admin::ProductsController < Admin::BaseController
   
-  before_filter :find_product, only:[:show]
+  include(::Admin::ProductsHelper)
+  
+  before_filter :find_product, only:[:show,:edit,:update]
   
   def index
     @title=t("admin.products.index.title")  
@@ -31,11 +33,7 @@ class Admin::ProductsController < Admin::BaseController
     @product = Product.new params[:product]
     
     if @product.save
-      message=t("admin.products.create.success",:title=>@product.title);
-      message+=" "+view_context.link_to( t("admin.products.create.where"),'#' ) 
-      message+=t("admin.products.create.or")
-      message+=view_context.link_to( t("admin.products.create.another") , new_admin_product_path ) 
-      flash[:block]=message.html_safe
+      create_product_flash_message('create_success','block') # Vedi products_helpers
       redirect_to [:admin,@product]                 
     else
       # no flash message, errors is self explanatory.
@@ -44,8 +42,35 @@ class Admin::ProductsController < Admin::BaseController
   end 
   
   
+  def edit
+    @title=t("admin.products.edit.title",:title=>@product.title)      
+  end
+  
+  def update
+    begin
+      if @product.update_attributes(params[:product]) 
+        create_product_flash_message('update_success','block') # Vedi products_helpers
+        redirect_to [:admin,@product]
+      else
+        render :edit # Niente flash, stampo solo gli errori. 
+      end
+    
+    rescue => msg
+      flash[:error]=t("admin.products.update.error",msg:msg)
+      redirect_to  [:admin,@product]
+    end
+    
+  end
+  
   def show
     @title=t("admin.products.show.title",title:@product.title)     
+  end
+  
+  
+  def destroy
+    @product=Product.destroy(params[:id])
+    create_product_flash_message('delete_success','block') # Vedi products_helpers 
+    redirect_to admin_products_path 
   end
   
   private

@@ -5,7 +5,7 @@ ECommerce::Application.routes.draw do
   get "products/index"
 
   get "static_pages/home"
-
+  
   root :to => 'static_pages#home'
   
   namespace :admin do
