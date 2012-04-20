@@ -56,6 +56,29 @@ describe Product do
        product.should_not be_valid 
     end
    
+    it " blank quantity should not be valid " do
+       
+      product = Product.new title:"A valid title",description:"a valid",price:1.50,qty:""      
+      product.should_not be_valid 
+   
+      product = Product.new title:"A valid title",description:"a valid",price:1.50,qty:nil  
+      product.should_not be_valid 
+     
+      product = Product.new title:"A valid title",description:"a super valid ",price:1.50,qty:"    "  
+      product.should_not be_valid 
+   
+    end
+    
+     it " qty that isn't a number should not be valid" do
+      product = Product.new title:"A valid title",description:"a valid",price:1.50,qty:"not a number"       
+      product.should_not be_valid 
+    end
+    
+     it " qty that isn't greater than 0 should not be valid " do
+       product = Product.new title:"A valid title",description:"a valid",price:1.50,qty:-1       
+       product.should_not be_valid 
+    end
+   
  end
  
 end

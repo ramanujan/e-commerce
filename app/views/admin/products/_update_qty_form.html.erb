@@ -1,0 +1,8 @@
+<%=form_tag inventory_admin_product_path(product),:method=>'put',:id=>"qty_form" do %>
+   
+   <%= text_field_tag :quantity,nil,placeholder:product.qty %>
+   
+   <%=submit_tag t("admin.products.inventory.submit"), :class=>"btn",:id=>"qty_update_button"%>
+    
+<%end%>
+

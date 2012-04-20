@@ -30,7 +30,6 @@ en:
       type: "Product Type"
       date: "Created At"
       price: "Selling Price"
-      inventory: "Inventory: %{inventory}"
       
       new:
         title: "Add new product"
@@ -43,7 +42,8 @@ en:
         price: "Selling price"
         submit: "Create Product"
         new_image: "Add product images"
- 
+        inventory: "Inventory"
+      
       index:
         title: "Available Products"
         add: "Add New Product"
@@ -70,7 +70,12 @@ en:
         success: "%{title} was successful updated! View it in "
         where: "your store"
         error: "There was this exception during update: %{msg}"
-      
+      inventory: 
+        success: "Inventory successful updated!"
+        invalid: "Inventory must be a number!"
+        submit: "Update inventory"
+      search: 
+        title: "Searching results..."      
       delete:
           success: "The product %{title} was successful deleted!"
 

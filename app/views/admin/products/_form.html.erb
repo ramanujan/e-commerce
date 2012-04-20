@@ -34,7 +34,7 @@
            		 id:"add_another_image"
            		 %>
            	
-           		 <p><%=t("heroku_warning")%></p>
+           		 <!-- <p><%=t("heroku_warning")%></p> -->
            	
             </div>
             
@@ -70,8 +70,18 @@
        
  
   <div>
-    <%=f.text_field :price, placeholder:0.01, class:'price'%>
+    <%=f.text_field :price, placeholder:'0.01', class:'price'%>
   </div>
+ 
+  <div>
+    <%=f.label(:qty,t("admin.products.new.inventory"))%> 
+  </div>  
+       
+ 
+  <div>
+    <%=f.text_field :qty, placeholder:'0', class:'inventory'%>
+  </div>
+  
  
   <div class="metalic">
   	

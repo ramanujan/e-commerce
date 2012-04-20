@@ -10,7 +10,7 @@
     </div>	
 	
 	<!-- Title -->
-	<div class="span3">
+	<div class="span5">
 	  <%=link_to( [:admin,product] ) do %>
 	    <h2><%=product.title%></h2>
 	  <%end%> 
@@ -22,7 +22,11 @@
 	</div>
 	
 	<div class="span1">
-      <%=t("admin.products.inventory",:inventory=>product.qty)%>
+      
+      <div class="row-fluid">
+        <%=render :partial=>'update_qty_form',:locals=>{:product=>product}  %> 
+      </div>
+      
     </div>
 	
 </div>

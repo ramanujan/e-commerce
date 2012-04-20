@@ -13,7 +13,11 @@ module Admin::ProductsHelper
         message 
       when 'delete_success'
         message=t("admin.products.delete.success",title:@product.title) 
-     
+      # ajax flash part
+      when 'update_quantity_success'
+         message=t("admin.products.inventory.success")      
+      when 'update_quantity_invalid'
+         message=t("admin.products.inventory.invalid")    
      end
      
      flash[type.to_s]=message.html_safe

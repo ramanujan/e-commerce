@@ -13,17 +13,62 @@
                     <li class="active"><%=link_to t('go_to_store_Admin'),admin_root_path%></li>   
                 </ul>
                 
-                <ul class="nav pull-right">
+                <ul class="nav pull-right"> 
                		
                		<li class="active"><%=link_to t('support'),'#'%></li>
                     <li><%=link_to t('account'),'#'%></li>
                     <li><%=link_to t('logout'),'#'%></li>
                 </ul> 
+                 
+                <!--Qui, per mostrare le potenzialità di unobtrusive javascript dentro i componenti 
+                	di Rails, controllo se la pagina è quella di un'azione index, oppure di un'azione
+                	search del controller admin/products. Se è così metto una versione ajax della search
+                	form, altrimenti una normale 
+                	Attenzione: nella form ho sostituito :method=>get con :action=>get
+                	_________________________________________________________________
+                	
+                	Purtroppo l'opzione :update in questo caso non funziona e non so 
+                	perchè. <<Problemi con form_tag() ?>> Elimino allora l'opzione :update e 
+                	anche l'opzione :remote (che comunque funziona) e utilizzo codesta soluzione: 
+                	
+                    Tramite javascript_tag passo al client il tipo di risposta desiderata,come ad
+                    esempio un frammento html, e gestisco con jquery la parte ajax. 
+                	
+                	Se non è abilitato JavaScript allora verrà invocata la normale azione
+                	di default, comunque non degrada gracefully perchè è una form strana, 
+                	che non ha pulsante, in altri termini : ATTIVA JS !   
+                	_________________________________________________________________
+                	-->
+               
                 
-                <form class="navbar-search pull-right">
+                <%if ( params[:action]=='index' || params[:action]=='search' ) && 
+                	   params[:controller]=='admin/products' %>
+                                                        
+                  <%=javascript_tag do %>
+                    window.searchActionResponseFormat = "<%= 'ajax' %>"
+                  <%end%>    
+                  
+                <%end%>
+                
+                  <%=form_tag search_admin_products_path, :method =>'get', 
+                                                          :id     =>'search_product',
+                                                          :class  =>"navbar-search pull-right" do %>
+                
+                     <%= text_field_tag :search_product,nil,
+                                        :placeholder=>'Search',
+                                        :class=>"search-query" %>
+                   
+                  <%end%>
+                   
+              
+                
+                <!-- 
+                <form class="navbar-search pull-right" id="search_product">
             		
             		<input type="text" class="search-query" placeholder="Search">
+            		
                 </form>
+                -->
                 <p class="icon-search icon-white pull-right"></p> 
                 <p class="divider-vertical pull-right"></p>
                 <p class="navbar-text pull-right"><%=t("logged_in")%> <%=link_to "Username","#"%></p>

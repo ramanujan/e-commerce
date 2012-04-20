@@ -1,0 +1,14 @@
+<div class="row-fluid">
+  <h1 class="hero-cico">Hello stranger!</h1>
+  <hr class="cool_line" />
+</div>
+
+<div class="row-fluid" id="ajax_main">
+  <%=form_tag('/static_pages/hello_stranger',:method=>'get') do%>
+    <%=label_tag :name, "Who are you?"%>
+    <%=text_field_tag(:name)%>
+    <div>
+      <%=submit_tag "Answer!",:class=>'btn btn-large',:id=>"answer_button"%>
+    </div>
+  <%end%>
+</div>

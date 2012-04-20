@@ -1,0 +1,131 @@
+Quando scriviamo web application complesse, piuttosto che recuperare contenuti globali, come intere pagine, 
+recupereremo solo piccoli frammenti HTML oppure dati. Questi andranno a sostituire il contenuto di elementi
+del DOM oppure a costruirne di nuovi. 
+L'oggetto fondamentale che permette ad AJAX di essere AJAX è l'oggetto noto come XHR. Questo componente
+si occupa delle invocazioni asincrone di servizi. Un tipico processo AJAX coinvolge: 
+
+  1) Creazione dell'elemento XHR
+  
+  2) Preparazione della connessione ( URL, HTTP-VERB )
+  
+  3) Impostazione dell'attributo onreadychange per supportare i cambiamenti di stato della risposta
+  
+  4) Richiesta
+  
+  5) Gestione della risposta 
+ 
+Si noti che per soddisfare tutti i punti abbiamo bisogno : 
+ 
+ a) The URL of the server resource
+ b) The HTTP Request type, usually a GET or a POST
+ c) Parameters needed by the server resource
+ d) A JavaScript function to interpret the results returned from the server
+ 
+ 
+ 
+ 
+ (1)__________________________________________________________________________________________________________
+ 
+ var xhr;                                         
+ 
+ if (document.XMLHttpRequest) {                    # ==> Detects XHR object
+   xhr = new XMLHttpRequest();                     # ==> Creates native object
+ } else {
+     xhr = new ActiveXObject("Microsoft.XMLHTTP"); # ==> Creates ActiveX control
+ } else {
+    alert("cannot use Ajax");
+ }
+ 
+ _____________________________________________________________________________________________________________
+   
+
+
+
+
+
+
+(2)_____________________________________________________________________________________________________________
+
+  xhr.open( http_method, url, asynch, userid, password )  
+  
+  Come si vede in questa fase possiamo utilizzare open() che N.B. non effettua alcuna
+  connessione ma la prepara. http_method può essere un qualunque verbo htto supportato
+  dal server: PUT,GET,POST,DELETE,HEAD ecc..
+  
+  Il parametro asynch che è true per default, quando è impostato a true, permette al client
+  di eseguire la richeista in un thread in background. Intanto il client può eseguire altre azioni.
+  Se invece si passa false, allora la richiesta diviene sincrona e l'utente deve attendere che sia completata!
+  userid and password sono utilizzati per connettersi con server che richiedono un'autenticazione HTTP.
+  ______________________________________________________________________________________________________________
+
+
+
+
+
+(3)______________________________________________________________________________________________________________
+
+  xhr.onreadystatechange = parseResponse <== Metodo callback per gestire le transizioni di stato della risposta
+  
+  Come si vede dobbiamo assegnare alla proprietà di XHR#onreadystatechange una funzione. Questa è una funzione
+  callback nel senso classico. Infatti viene utilizzata ad ogni cambiamento di stato dell'elaborazione della
+  risposta. XHR invoca questo metodo callback durante 4 step del ciclo di vita della risposta:
+  
+    VALUE  | STATE         | DESCRIPTION
+    
+     0     | Uninitialized | open() is not been called
+     1     | Loading       | open() is been executed
+     2     | load          | send() is been executed
+     3     | Interactive   | The server has returned a chunk of data
+     4     | Complete      | The request is complete, the server is finished to send data 
+  
+  Questi valori sono assegnati alla proprieà XHR#readyState <== PROPRIETÀ CHE MANTIENE LO STATO CORRENTE 
+  
+  Una tipica funzione callback esegue: 
+  
+ xhr.onreadystatechange = function(){
+   var ready = xhr.readyState;
+   if (ready == 4) {
+     var status = xhr.status;               # <== Status della risposta: >=200 <= 299 OK, >=300 ERROR
+     if (status >= 200 && status < 300) {
+       parseCompletedResponse(xhr);
+     } else {
+         parseErroredResponse(xhr);
+     }
+   }
+ };
+ 
+  
+
+
+
+
+(4)______________________________________________________________________________________________________________
+
+  xhr.send(null)
+  
+  Con questo metodo eseguiamo la vera e propria richiesta al server. Può essere utilizzata per spedire 
+  informazioni addizionali al server, e cioè un body della richiesta. Normalmente ciò accade solo con 
+  le azioni POST, PUT, quindi con GET, DELETE puoi utilizzare anche null oppure una stringa vuota
+    
+________________________________________________________________________________________________________________
+  
+  
+In generale la risposta del server può presentarsi come:
+
+1) Plain text
+
+2) HTML chunk
+
+3) HTML chunk con javascript
+
+4) XML
+
+5) JSON
+ 
+
+Si noti che nel controller StaticPages ho messo un'azione ajax_lezione_1, che carica ,l'omonima 
+ajax_lezione1.html.erb e li, ho messo un piccolo esercizio che mostra come utilizzare in maniera
+semplice un framework come jQuery per eseguire le operazioni AJAX. 
+
+ 
+  

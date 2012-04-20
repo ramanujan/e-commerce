@@ -14,4 +14,6 @@
 //=require    jquery_ujs
 //=require    bootstrap
 //=require    files
+//=require    ajax_lezione_1
+//=require    admin/products
 //=require    custom
